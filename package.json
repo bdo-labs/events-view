@@ -1,31 +1,44 @@
 {
-	"name": "indicator-events",
-	"version": "0.0.0",
-	"description": "Component that lists all events related to an indicator.",
-	"main": "lib/index.js",
-	"repository": "git://github.com/bdo-labs/indicator-events-component.git",
-	"license": "MIT",
-	"scripts": {
-		"test": "karma start"
-	},
-	"atomify": {
-		"js": {
-			"entry": "lib/index.js",
-			"output": "build/build.js"
+  "name": "indicator-events",
+  "version": "0.0.0",
+  "description": "Component that lists all events related to an indicator.",
+  "main": "lib/index.js",
+  "repository": "git://github.com/bdo-labs/indicator-events-component.git",
+  "license": "MIT",
+  "scripts": {
+    "test": "karma start"
+  },
+  "atomify": {
+    "js": {
+      "entry": "lib/index.js",
+      "output": "build/build.js"
+    },
+	"css": {
+		"entry": "lib/bundle.css",
+		"output": "build/bundle.css",
+		"assets": {
+			"dest": "build/assets/",
+			"prefix": "assets/"
 		}
-	},
-	"browserify": {
-		"transforms": [
-			"partialify"
-		]
-	},
-	"devDependencies": {
-		"angular": "^1.2.18",
-		"atomify": "^3.1.2",
-		"partialify": "^3.1.1",
-		"browserify": "^4.2.0",
-		"karma": "^0.12.16",
-		"karma-browserifast": "^0.6.1",
-		"karma-jasmine": "^0.1.5"
 	}
+  },
+  "browserify": {
+    "transforms": [
+      "partialify"
+    ]
+  },
+  "devDependencies": {
+    "angular": "^1.2.18",
+    "atomify": "^3.1.2",
+    "partialify": "^3.1.1",
+    "browserify": "^4.2.0",
+    "karma": "^0.12.16",
+    "karma-browserifast": "^0.6.1",
+    "karma-jasmine": "^0.1.5"
+  },
+  "dependencies": {
+    "filters": "git://github.com/bdo-labs/filters.git",
+    "styles": "git://github.com/bdo-labs/styles.git",
+    "services": "git+https://edbdo.visualstudio.com/DefaultCollection/BDO%20Labs/_git/Services"
+  }
 }

@@ -1,0 +1,35 @@
+﻿@import "../../node_modules/styles/lib/sass/_variables-and-mixins.scss";
+
+.indicator-events-module {
+	table {
+		width: 100%;
+	}
+
+	td {
+		padding: 0.5em;
+	}
+
+	tr {
+		border-bottom: 1px solid $separator-color;
+		color: $module-text-color;
+
+		&.unseen {
+			color: black;
+
+			// Icon color
+			td:nth-child(2) {
+				color: $strategi-color;
+			}
+		}
+	}
+
+
+	td:first-child, td:nth-child(2) {
+		text-align: center;
+	}
+
+	td:first-child { // Deadline
+		text-align: center;
+		font-size: 0.8em;
+	}
+}

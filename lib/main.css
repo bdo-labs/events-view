@@ -1,0 +1,30 @@
+/* line 4, sass/main.scss */
+.indicator-events-module table {
+  width: 100%;
+}
+/* line 8, sass/main.scss */
+.indicator-events-module td {
+  padding: 0.5em;
+}
+/* line 12, sass/main.scss */
+.indicator-events-module tr {
+  border-bottom: 1px solid #efefef;
+  color: #878787;
+}
+/* line 16, sass/main.scss */
+.indicator-events-module tr.unseen {
+  color: black;
+}
+/* line 20, sass/main.scss */
+.indicator-events-module tr.unseen td:nth-child(2) {
+  color: #2eafa4;
+}
+/* line 27, sass/main.scss */
+.indicator-events-module td:first-child, .indicator-events-module td:nth-child(2) {
+  text-align: center;
+}
+/* line 31, sass/main.scss */
+.indicator-events-module td:first-child {
+  text-align: center;
+  font-size: 0.8em;
+}

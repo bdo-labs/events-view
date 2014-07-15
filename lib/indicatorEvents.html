@@ -1,0 +1,15 @@
+﻿<section class="interactive-box indicator-events-module">
+
+	<h1>Siste hendelser: {{indicator.name}}</h1>
+
+	<table>
+		<tr ng-repeat="e in indicator.events"
+			ng-class="[e.type, e.unseen ? 'unseen' : '']">
+			<td>{{e.date | humanDate : 'dd.MM'}}</td>
+			<td><i ng-class="['fa', 'fa-' + e.type]"></i></td>
+			<td>{{e.description}}</td>
+			<td>{{e.createdBy.name}}</td>
+		</tr>
+	</table>
+
+</section>
