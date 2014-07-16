@@ -72,6 +72,13 @@
 		border-radius: $portrait-size;
 	}
 
+	a {
+		margin-top: 10px;
+		display: block;
+		text-align: center;
+		color: $module-text-color;
+	}
+
 	// This makes the hacky line work
 	td, table {
 		height: 100%;
