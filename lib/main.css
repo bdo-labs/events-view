@@ -1,30 +1,71 @@
-/* line 4, sass/main.scss */
+/* line 7, sass/main.scss */
 .indicator-events-module table {
   width: 100%;
+  border-collapse: collapse;
 }
-/* line 8, sass/main.scss */
+/* line 12, sass/main.scss */
 .indicator-events-module td {
   padding: 0.5em;
 }
-/* line 12, sass/main.scss */
+/* line 16, sass/main.scss */
 .indicator-events-module tr {
-  border-bottom: 1px solid #efefef;
   color: #878787;
 }
-/* line 16, sass/main.scss */
+/* line 19, sass/main.scss */
 .indicator-events-module tr.unseen {
   color: black;
 }
-/* line 20, sass/main.scss */
+/* line 23, sass/main.scss */
 .indicator-events-module tr.unseen td:nth-child(2) {
   color: #2eafa4;
 }
-/* line 27, sass/main.scss */
-.indicator-events-module td:first-child, .indicator-events-module td:nth-child(2) {
+/* line 30, sass/main.scss */
+.indicator-events-module td:first-child, .indicator-events-module td:nth-last-child(3) {
   text-align: center;
 }
-/* line 31, sass/main.scss */
-.indicator-events-module td:first-child {
+/* line 34, sass/main.scss */
+.indicator-events-module td:nth-last-child(3) {
+  width: 20px;
+}
+/* line 38, sass/main.scss */
+.indicator-events-module td:nth-last-child(4) {
   text-align: center;
   font-size: 0.8em;
+  width: 35px;
+}
+/* line 44, sass/main.scss */
+.indicator-events-module td:last-child {
+  width: 30px;
+}
+/* line 48, sass/main.scss */
+.indicator-events-module td:nth-last-child(2), .indicator-events-module td:last-child {
+  border-bottom: 2px solid #efefef;
+}
+/* line 53, sass/main.scss */
+.indicator-events-module td:last-child {
+  padding: 0;
+}
+/* line 57, sass/main.scss */
+.indicator-events-module tr.check i {
+  color: black;
+}
+/* line 61, sass/main.scss */
+.indicator-events-module img {
+  width: 1.6em;
+  height: 1.6em;
+  padding: 0.2em;
+  vertical-align: middle;
+  border-radius: 1.6em;
+}
+/* line 76, sass/main.scss */
+.indicator-events-module td, .indicator-events-module table {
+  height: 100%;
+}
+/* line 80, sass/main.scss */
+.indicator-events-module .hacky-line::before {
+  content: ' ';
+  display: inline-block;
+  background: gray;
+  width: 1px;
+  height: 100%;
 }

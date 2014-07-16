@@ -1,14 +1,15 @@
 ﻿<section class="interactive-box indicator-events-module">
 
-	<h1>Siste hendelser: {{indicator.name}}</h1>
+	<h1>Siste hendelser</h1>
 
 	<table>
-		<tr ng-repeat="e in indicator.events"
-			ng-class="[e.type, e.unseen ? 'unseen' : '']">
-			<td>{{e.date | humanDate : 'dd.MM'}}</td>
-			<td><i ng-class="['fa', 'fa-' + e.type]"></i></td>
+		<tr ng-repeat="e in events | orderBy : '-date'"
+			ng-class="e.type">
+			<td ng-if="e.rows < 2 && e.humanDate">{{e.humanDate}}</td>
+			<td ng-if="e.rows > 1" rowspan="{{e.rows - 1}}" class="hacky-line"></td>
+			<td><i ng-class="['fa', 'fa-' + e.type + '-circle']"></i></td>
 			<td>{{e.description}}</td>
-			<td>{{e.createdBy.name}}</td>
+			<td><img ng-src="{{e.createdBy.image}}" alt="{{e.createdBy.name}}"></td>
 		</tr>
 	</table>
 
