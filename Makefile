@@ -18,7 +18,7 @@ REPORTER?=spec
 # Sources
 #
 
-SRC:=$(shell find lib -regex '/^.*(html|js|json|css)$$/')
+SRC:=$(shell find lib -E -regex '/^.*(html|js|json|css)$/')
 TESTS:=$(shell find lib -name '*.test.js')
 
 
@@ -28,7 +28,13 @@ TESTS:=$(shell find lib -name '*.test.js')
 
 build: node_modules $(SRC)
 	mkdir -p $@
+
+	compass compile
 	atomify
+
+	@echo "Copying example files..."
+	cp index.html lib/main.css $@/
+
 	@echo ""
 	@echo "    indicator-events was built!"
 	@echo ""
@@ -42,5 +48,5 @@ test: build
 clean:
 	rm -fr build
 
-.PHONY: clean test
+.PHONY: clean test build
 

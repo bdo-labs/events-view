@@ -1,0 +1,17 @@
+﻿<section class="interactive-box indicator-events-module">
+
+	<h1>Siste hendelser</h1>
+
+	<table>
+		<tr ng-repeat="e in events | orderBy : '-date'"
+			ng-class="e.type">
+			<td ng-if="e.rows < 2 && e.humanDate">{{e.humanDate}}</td>
+			<td ng-if="e.rows > 0" rowspan="{{e.rows}}" class="hacky-line"></td>
+			<td><i ng-class="['fa', 'fa-' + e.type + '-circle']"></i></td>
+			<td>{{e.description}}</td>
+			<td><img ng-src="{{e.createdBy.image}}" alt="{{e.createdBy.name}}"></td>
+		</tr>
+	</table>
+
+	<a href="" ng-click="loadMore()" ng-if="showLoadMoreLink">Se flere...</a>
+</section>

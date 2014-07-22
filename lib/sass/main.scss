@@ -1,0 +1,95 @@
+﻿@import "../../node_modules/styles/lib/sass/_variables-and-mixins.scss";
+
+.indicator-events-module {
+	$td-padding: 0.5em;
+
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	td {
+		padding: $td-padding;
+	}
+
+	tr {
+		color: $module-text-color;
+
+		&.unseen {
+			color: black;
+
+			// Icon color
+			td:nth-child(2) {
+				color: $strategi-color;
+			}
+		}
+	}
+
+
+	td:first-child, td:nth-last-child(3) {
+		text-align: center;
+	}
+
+	td:nth-last-child(3) { // Icon
+		width: 20px;
+	}
+
+	td:nth-last-child(4) { // Date
+		text-align: center;
+		font-size: 0.8em;
+		width: 35px;
+	}
+
+	td:last-child { // Image
+		width: 30px;
+	}
+
+	td:nth-last-child(2), td:last-child {
+		border-bottom: 2px solid $separator-color;
+	}
+
+	// Display the portrait in (almost) full height
+	td:last-child {
+		padding: 0;
+	}
+
+	tr.check i {
+		color: black;
+	}
+
+	img {
+		$img-padding: 0.2em;
+		$portrait-size: 1em + 2*($td-padding - $img-padding);
+
+		width: $portrait-size;
+		height: $portrait-size;
+
+		padding: $img-padding;
+
+		vertical-align: middle;
+
+		border-radius: $portrait-size;
+	}
+
+	a {
+		margin-top: 10px;
+		display: block;
+		text-align: center;
+		color: $module-text-color;
+	}
+
+	// This makes the hacky line work
+	td, table {
+		height: 100%;
+	}
+
+	.hacky-line::before {
+		content: ' ';
+		display: inline-block;
+		background: gray;
+		width: 1px;
+		height: 100%;
+
+	}
+}
