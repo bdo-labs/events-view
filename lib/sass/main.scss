@@ -1,6 +1,6 @@
 ﻿@import "../../node_modules/styles/lib/sass/_variables-and-mixins.scss";
 
-.indicator-events-module {
+.events-view {
 	$td-padding: 0.5em;
 
 
@@ -14,7 +14,7 @@
 	}
 
 	tr {
-		color: $module-text-color;
+		color: $descriptive-text-color;
 
 		&.unseen {
 			color: black;
@@ -76,7 +76,7 @@
 		margin-top: 10px;
 		display: block;
 		text-align: center;
-		color: $module-text-color;
+		color: $descriptive-text-color;
 	}
 
 	// This makes the hacky line work

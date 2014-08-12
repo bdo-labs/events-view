@@ -18,8 +18,8 @@ REPORTER?=spec
 # Sources
 #
 
-SRC:=$(shell find lib -E -regex '/^.*(html|js|json|css)$/')
-TESTS:=$(shell find lib -name '*.test.js')
+SRC:=$(wildcard lib/*)
+TESTS:=$(wildcard test/*)
 
 
 #
@@ -29,14 +29,10 @@ TESTS:=$(shell find lib -name '*.test.js')
 build: node_modules $(SRC)
 	mkdir -p $@
 
-	compass compile
 	atomify
 
-	@echo "Copying example files..."
-	cp index.html lib/main.css $@/
-
 	@echo ""
-	@echo "    indicator-events was built!"
+	@echo "    events-view was built!"
 	@echo ""
 
 node_modules: package.json

@@ -2,8 +2,8 @@
  * Test the directivë
  */
 
-describe('Indicator events directive', function () {
-	var indicatorEventsModuleDirective,
+describe('events view', function () {
+	var eventsViewModule,
 		$compile,
 		scope,
 		mockIndicatorService = {
@@ -14,7 +14,7 @@ describe('Indicator events directive', function () {
 
 	function compileDirective(id) {
 		var element = $compile(
-				'<div indicator-events-module="" indicator-id="' + id + '"></div>'
+				'<div events-view="" indicator-id="' + id + '"></div>'
 			)(scope);
 
 		scope.$digest();
@@ -24,14 +24,14 @@ describe('Indicator events directive', function () {
 
 	beforeEach(function () {
 
-		module('indicatorEvents');
+		module('eventsView');
 
 		module(function ($provide) {
 			$provide.value('indicatorService', mockIndicatorService);
 		});
 
-		inject(function (_indicatorEventsModuleDirective_, _$compile_, $rootScope) {
-			indicatorEventsModuleDirective = _indicatorEventsModuleDirective_;
+		inject(function (_eventsViewDirective_, _$compile_, $rootScope) {
+			eventsViewModule = _eventsViewDirective_;
 			$compile = _$compile_;
 			scope = $rootScope.$new();
 		});
@@ -39,7 +39,7 @@ describe('Indicator events directive', function () {
 	});
 
 	it('should exist', function () {
-		expect(indicatorEventsModuleDirective).toBeTruthy();
+		expect(eventsViewModule).toBeTruthy();
 	});
 
 	it('should ask service for correct indicator', function () {

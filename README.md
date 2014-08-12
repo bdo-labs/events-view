@@ -1,13 +1,13 @@
 
-indicator-events
+events-view
 ============
 
-Component that lists all events related to an indicator.
+Component that lists events.
 
 
 ## Installation
 
-    $ git clone https://github.com/bdo-labs/indicator-events.git
+    $ git clone https://github.com/bdo-labs/events-view.git
     $ make -s
 
 
@@ -19,7 +19,7 @@ Component that lists all events related to an indicator.
 ## API
 
 ```Javascript
-    var indicator-events = require('indicator-events');
+    var eventsView = require('events-view');
 ```
 
 
