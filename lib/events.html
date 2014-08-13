@@ -13,6 +13,8 @@
 				<td><i ng-class="['fa', 'fa-' + e.type + '-circle']"></i></td>
 
 				<td>{{e.description}}</td>
+
+				<td>{{e.createdBy.name}}</td>
 				<td><img ng-src="{{e.createdBy.image}}" alt="{{e.createdBy.name}}"></td>
 			</tr>
 		</table>

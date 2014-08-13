@@ -10,7 +10,8 @@
 	</head>
 
 	<body ng-app="eventsView">
-		<div events-view indicator-id="2"></div>
+		<button ng-click="large = !large">Toggle large</button>
+		<div events-view indicator-id="2" ng-class="{large: large}"></div>
 	</body>
 
 </html>
