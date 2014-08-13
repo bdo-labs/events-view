@@ -15,7 +15,7 @@
       "output": "build/build.js"
     },
 	"css": {
-		"entry": "lib/bundle.css",
+		"entry": "index.css",
 		"output": "build/bundle.css",
 		"assets": {
 			"dest": "build/assets/",
