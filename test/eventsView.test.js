@@ -6,15 +6,17 @@ describe('events view', function () {
 	var eventsViewModule,
 		$compile,
 		scope,
-		mockIndicatorService = {
-			get: function (id) {
-				return {id: id};
+		mockEventService = {
+			query: function () {
+				return [];
 			}
 		};
 
-	function compileDirective(id) {
+	function compileDirective(filter) {
 		var element = $compile(
-				'<div events-view="" indicator-id="' + id + '"></div>'
+				'<div events-view="" ' +
+					(filter ? 'filter="' + filter + '"' : '') +
+				'></div>'
 			)(scope);
 
 		scope.$digest();
@@ -27,7 +29,7 @@ describe('events view', function () {
 		module('eventsView');
 
 		module(function ($provide) {
-			$provide.value('indicatorService', mockIndicatorService);
+			$provide.value('eventService', mockEventService);
 		});
 
 		inject(function (_eventsViewDirective_, _$compile_, $rootScope) {
@@ -42,36 +44,36 @@ describe('events view', function () {
 		expect(eventsViewModule).toBeTruthy();
 	});
 
-	it('should ask service for correct indicator', function () {
-		spyOn(mockIndicatorService, 'get').andCallThrough();
+	it('should ask service for events', function () {
+		spyOn(mockEventService, 'query').andCallThrough();
 
-		compileDirective(334)
+		compileDirective();
 
-		expect(mockIndicatorService.get).toHaveBeenCalledWith(334);
+		expect(mockEventService.query).toHaveBeenCalled();
 	});
 
 	it('should add events array to its scope', function () {
-		var events = compileDirective(334).isolateScope().$eval('events');
+		var events = compileDirective().isolateScope().$eval('events');
 
 		expect(angular.isArray(events)).toBe(true);
 	});
 
 	it('should limit the number of items to 5 by default', function () {
-		spyOn(mockIndicatorService, 'get').andReturn({
-			events: [{},{},{},{},{},{},{},{},{},{},{},{},{}]
-		});
+		spyOn(mockEventService, 'query').andReturn(
+			[{},{},{},{},{},{},{},{},{},{},{},{},{}]
+		);
 
-		var events = compileDirective(334).isolateScope().$eval('events');
+		var events = compileDirective().isolateScope().$eval('events');
 
 		expect(events.length).toBe(5);
 	});
 	
 	it('should add more items when loadMore() is called', function () {
-		spyOn(mockIndicatorService, 'get').andReturn({
-			events: [{},{},{},{},{},{},{},{},{},{},{},{},{}]
-		});
+		spyOn(mockEventService, 'query').andReturn(
+			[{},{},{},{},{},{},{},{},{},{},{},{},{}]
+		);
 
-		var isolateScope = compileDirective(334).isolateScope(),
+		var isolateScope = compileDirective().isolateScope(),
 			events;
 
 		isolateScope.loadMore();
@@ -82,16 +84,14 @@ describe('events view', function () {
 	});
 
 	it('should update when the model changes', function () {
-		var mockIndicator = {
-			events: [{},{},{},{},{},{},{},{},{},{},{},{},{}]
-		};
+		var mockQuery = [{},{},{},{},{},{},{},{},{},{},{},{},{}];
 		
-		spyOn(mockIndicatorService, 'get').andReturn(mockIndicator);
+		spyOn(mockEventService, 'query').andReturn(mockQuery);
 
-		var isolateScope = compileDirective(334).isolateScope(),
+		var isolateScope = compileDirective().isolateScope(),
 			events;
 
-		mockIndicator.events.splice(0);
+		mockQuery.splice(0, mockQuery.length);
 		scope.$digest();
 
 		events = isolateScope.$eval('events');
@@ -100,21 +100,18 @@ describe('events view', function () {
 	});
 
 	it('should sort, sum rows and remove dates correctly', function () {
-		spyOn(mockIndicatorService, 'get').andReturn({
-			events: [
-				{date: new Date(2014, 9, 12)},
-				{date: new Date(2014, 9, 12)},
-				{date: new Date(2014, 4, 2)},
-				{date: new Date(2014, 3, 24)},
-				{date: new Date(2014, 9, 12)},
-				{date: new Date(2014, 3, 24)},
-				{date: new Date(2014, 3, 24)},
-				{date: new Date(2014, 9, 12)},
-				{date: new Date(2014, 4, 2)}
-			]
-		});
+		spyOn(mockEventService, 'query').andReturn([
+			{date: new Date(2014, 9, 12)},
+			{date: new Date(2014, 9, 12)},
+			{date: new Date(2014, 9, 12)},
+			{date: new Date(2014, 9, 12)},
+			{date: new Date(2014, 4, 2)},
+			{date: new Date(2014, 3, 24)},
+			{date: new Date(2014, 3, 24)},
+			{date: new Date(2014, 3, 24)}
+		]);
 
-		var isolateScope = compileDirective(334).isolateScope(),
+		var isolateScope = compileDirective().isolateScope(),
 			events,
 			numberOfDates = 0;
 
@@ -122,18 +119,17 @@ describe('events view', function () {
 		events = isolateScope.$eval('events');
 
 		events.forEach(function (value) {
-			numberOfDates += !!value.date;
+			numberOfDates += !!value.humanDate;
 		});
 
 		expect(events[0].date).not.toBeNull();
 		expect(events[4].date).not.toBeNull();
-		expect(events[6].date).not.toBeNull();
+		expect(events[5].date).not.toBeNull();
 
-		expect(numberOfDates).not.toBe(3);
+		expect(numberOfDates).toBe(3);
 		
 		expect(events[1].rows).toBe(3);
-		expect(events[5].rows).toBe(1);
-		expect(events[7].rows).toBe(2);
+		expect(events[6].rows).toBe(2);
 	});
 	
 	
