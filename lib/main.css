@@ -28,48 +28,53 @@
   text-align: center;
   color: #969696;
 }
-/* line 43, sass/main.scss */
+/* line 42, sass/main.scss */
+.events-view p {
+  color: #969696;
+  text-align: center;
+}
+/* line 48, sass/main.scss */
 .events-view table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 50px;
 }
-/* line 50, sass/main.scss */
+/* line 55, sass/main.scss */
 .events-view td {
   padding: 0.5em;
 }
-/* line 54, sass/main.scss */
+/* line 59, sass/main.scss */
 .events-view td:first-child, .events-view td:nth-last-child(4) {
   text-align: center;
 }
-/* line 59, sass/main.scss */
+/* line 64, sass/main.scss */
 .events-view td:nth-last-child(4) {
   width: 20px;
 }
-/* line 63, sass/main.scss */
+/* line 68, sass/main.scss */
 .events-view tr.check i {
   color: #34495e;
 }
-/* line 67, sass/main.scss */
+/* line 72, sass/main.scss */
 .events-view tr i {
   color: #969696;
 }
-/* line 72, sass/main.scss */
+/* line 77, sass/main.scss */
 .events-view td:nth-last-child(5) {
   text-align: center;
   font-size: 0.8em;
   width: 35px;
 }
-/* line 79, sass/main.scss */
+/* line 84, sass/main.scss */
 .events-view td:nth-last-child(3), .events-view td:nth-last-child(2), .events-view td:last-child {
   border-bottom: 2px solid #efefef;
 }
-/* line 84, sass/main.scss */
+/* line 89, sass/main.scss */
 .events-view td:last-child {
   padding: 0;
   width: 30px;
 }
-/* line 89, sass/main.scss */
+/* line 94, sass/main.scss */
 .events-view img {
   width: 1.6em;
   height: 1.6em;
@@ -77,11 +82,11 @@
   vertical-align: middle;
   border-radius: 1.6em;
 }
-/* line 104, sass/main.scss */
+/* line 109, sass/main.scss */
 .events-view td, .events-view table {
   height: 100%;
 }
-/* line 108, sass/main.scss */
+/* line 113, sass/main.scss */
 .events-view .hacky-line::before {
   content: ' ';
   display: inline-block;
