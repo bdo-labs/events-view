@@ -1,9 +1,10 @@
 {
-  "name": "indicator-events",
+  "name": "events-view",
   "version": "0.0.0",
-  "description": "Component that lists all events related to an indicator.",
+  "description": "Component that lists events.",
   "main": "lib/index.js",
-  "repository": "git://github.com/bdo-labs/indicator-events-component.git",
+  "style": "lib/main.css",
+  "repository": "git://github.com/bdo-labs/events-view.git",
   "license": "MIT",
   "scripts": {
     "test": "karma start"
@@ -14,7 +15,7 @@
       "output": "build/build.js"
     },
 	"css": {
-		"entry": "lib/bundle.css",
+		"entry": "index.css",
 		"output": "build/bundle.css",
 		"assets": {
 			"dest": "build/assets/",
@@ -23,7 +24,7 @@
 	}
   },
   "browserify": {
-    "transforms": [
+    "transform": [
       "partialify"
     ]
   },
