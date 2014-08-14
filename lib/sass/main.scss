@@ -1,4 +1,9 @@
-﻿@import "../../node_modules/styles/lib/sass/_variables-and-mixins.scss";
+@import "../../node_modules/styles/lib/sass/_variables-and-mixins.scss";
+
+// Hide name row in small boxes
+*:not(.large) > .events-view td:nth-last-child(2) {
+	display: none;
+}
 
 .events-view {
 	$td-padding: 0.5em;
@@ -34,6 +39,11 @@
 		color: $descriptive-text-color;
 	}
 
+	p {
+		color: $descriptive-text-color;
+		text-align: center;
+	}
+
 
 	table {
 		width: 100%;
@@ -46,12 +56,12 @@
 		padding: $td-padding;
 	}
 
-	td:first-child, td:nth-last-child(3) {
+	td:first-child, td:nth-last-child(4) {
 		text-align: center;
 	}
 
 	// Icons
-	td:nth-last-child(3) {
+	td:nth-last-child(4) {
 		width: 20px;
 	}
 
@@ -64,14 +74,14 @@
 	}
 
 	// Date
-	td:nth-last-child(4) {
+	td:nth-last-child(5) {
 		text-align: center;
 		font-size: 0.8em;
 		width: 35px;
 	}
 
 
-	td:nth-last-child(2), td:last-child {
+	td:nth-last-child(3), td:nth-last-child(2), td:last-child {
 		border-bottom: 2px solid $separator-color;
 	}
 

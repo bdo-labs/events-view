@@ -1,9 +1,14 @@
-/* line 6, sass/main.scss */
+/* line 4, sass/main.scss */
+*:not(.large) > .events-view td:nth-last-child(2) {
+  display: none;
+}
+
+/* line 11, sass/main.scss */
 .events-view > div {
   max-height: 260px;
   overflow-y: auto;
 }
-/* line 11, sass/main.scss */
+/* line 16, sass/main.scss */
 .events-view:after {
   content: ' ';
   position: absolute;
@@ -14,7 +19,7 @@
   background: linear-gradient(rgba(255, 255, 255, 0), #ffffff, #ffffff);
   z-index: 1;
 }
-/* line 26, sass/main.scss */
+/* line 31, sass/main.scss */
 .events-view a {
   position: relative;
   margin-top: -30px;
@@ -23,48 +28,53 @@
   text-align: center;
   color: #969696;
 }
-/* line 38, sass/main.scss */
+/* line 42, sass/main.scss */
+.events-view p {
+  color: #969696;
+  text-align: center;
+}
+/* line 48, sass/main.scss */
 .events-view table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 50px;
 }
-/* line 45, sass/main.scss */
+/* line 55, sass/main.scss */
 .events-view td {
   padding: 0.5em;
 }
-/* line 49, sass/main.scss */
-.events-view td:first-child, .events-view td:nth-last-child(3) {
+/* line 59, sass/main.scss */
+.events-view td:first-child, .events-view td:nth-last-child(4) {
   text-align: center;
 }
-/* line 54, sass/main.scss */
-.events-view td:nth-last-child(3) {
+/* line 64, sass/main.scss */
+.events-view td:nth-last-child(4) {
   width: 20px;
 }
-/* line 58, sass/main.scss */
+/* line 68, sass/main.scss */
 .events-view tr.check i {
   color: #34495e;
 }
-/* line 62, sass/main.scss */
+/* line 72, sass/main.scss */
 .events-view tr i {
   color: #969696;
 }
-/* line 67, sass/main.scss */
-.events-view td:nth-last-child(4) {
+/* line 77, sass/main.scss */
+.events-view td:nth-last-child(5) {
   text-align: center;
   font-size: 0.8em;
   width: 35px;
 }
-/* line 74, sass/main.scss */
-.events-view td:nth-last-child(2), .events-view td:last-child {
+/* line 84, sass/main.scss */
+.events-view td:nth-last-child(3), .events-view td:nth-last-child(2), .events-view td:last-child {
   border-bottom: 2px solid #efefef;
 }
-/* line 79, sass/main.scss */
+/* line 89, sass/main.scss */
 .events-view td:last-child {
   padding: 0;
   width: 30px;
 }
-/* line 84, sass/main.scss */
+/* line 94, sass/main.scss */
 .events-view img {
   width: 1.6em;
   height: 1.6em;
@@ -72,11 +82,11 @@
   vertical-align: middle;
   border-radius: 1.6em;
 }
-/* line 99, sass/main.scss */
+/* line 109, sass/main.scss */
 .events-view td, .events-view table {
   height: 100%;
 }
-/* line 103, sass/main.scss */
+/* line 113, sass/main.scss */
 .events-view .hacky-line::before {
   content: ' ';
   display: inline-block;
