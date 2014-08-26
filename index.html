@@ -1,17 +1,13 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Test page for indicator events component</title>
-		<meta charset="utf-8" />
-
-		<script src="build.js"></script>
-		<link rel="stylesheet" href="bundle.css" />
-	</head>
-
-	<body ng-app="eventsView">
-		<button ng-click="large = !large">Toggle large</button>
-		<div events-view indicator-id="2" ng-class="{large: large}"></div>
-	</body>
-
+  <head>
+    <meta charset="utf-8" />
+    <title>Test page for indicator events component</title>
+    <link rel="stylesheet" href="bundle.css" />
+    <script src="build.js"></script>
+  </head>
+  <body ng-app="eventsView">
+    <button ng-click="large = !large">Toggle large</button>
+    <div events-view indicator-id="2" ng-class="{large: large}"></div>
+  </body>
 </html>

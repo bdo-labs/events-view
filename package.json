@@ -7,6 +7,8 @@
   "repository": "git://github.com/bdo-labs/events-view.git",
   "license": "MIT",
   "scripts": {
+    "build": "atomify",
+    "clean": "rm -fr build",
     "test": "karma start"
   },
   "atomify": {
@@ -14,14 +16,14 @@
       "entry": "lib/index.js",
       "output": "build/build.js"
     },
-	"css": {
-		"entry": "index.css",
-		"output": "build/bundle.css",
-		"assets": {
-			"dest": "build/assets/",
-			"prefix": "assets/"
-		}
-	}
+    "css": {
+      "entry": "index.css",
+      "output": "build/bundle.css"
+    },
+    "assets": {
+      "dest": "build/assets/",
+      "prefix": "assets/"
+    }
   },
   "browserify": {
     "transform": [
@@ -30,7 +32,7 @@
   },
   "devDependencies": {
     "angular": "^1.2.18",
-    "atomify": "^3.1.2",
+    "atomify": "bdo-labs/atomify",
     "partialify": "^3.1.1",
     "browserify": "^4.2.0",
     "karma": "^0.12.16",
@@ -38,8 +40,8 @@
     "karma-jasmine": "^0.1.5"
   },
   "dependencies": {
-    "filters": "git://github.com/bdo-labs/filters.git",
-    "styles": "git://github.com/bdo-labs/styles.git",
+    "filters": "bdo-labs/filters",
+    "styles": "bdo-labs/styles",
     "services": "git+https://edbdo.visualstudio.com/DefaultCollection/BDO%20Labs/_git/Services"
   }
 }

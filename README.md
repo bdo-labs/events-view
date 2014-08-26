@@ -7,23 +7,15 @@ Component that lists events.
 
 ## Installation
 
-    $ git clone https://github.com/bdo-labs/events-view.git
-    $ make -s
+    $ npm install bdo-labs/events-view
+    $ npm run build
 
 
 ## Running tests
 
-    $ make -s test
+    $ npm test
 
 
-## API
-
-```Javascript
-    var eventsView = require('events-view');
-```
-
-
-}
 ## License
 
 The MIT License
