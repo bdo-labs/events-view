@@ -1,24 +1,26 @@
-﻿<section class="primary-box events-view">
+﻿
+<!-- events-view -->
+<section class="primary-box events-view">
+  <h1>Hendelser</h1>
+  <div>
+    <table ng-if="events.length">
+      <tr ng-repeat="e in events | orderBy : '-date'"
+        ng-class="e.type">
 
-	<h1>Siste hendelser</h1>
+        <td ng-if="e.rows < 2 && e.humanDate">{{e.humanDate}}</td>
+        <td ng-if="e.rows > 0" rowspan="{{e.rows}}" class="hacky-line"></td>
 
-	<div>
-		<table ng-if="events.length">
-			<tr ng-repeat="e in events | orderBy : '-date'"
-				ng-class="e.type">
+        <td><i ng-class="['fa', 'fa-' + e.type + '-circle']"></i></td>
 
-				<td ng-if="e.rows < 2 && e.humanDate">{{e.humanDate}}</td>
-				<td ng-if="e.rows > 0" rowspan="{{e.rows}}" class="hacky-line"></td>
+        <td>{{e.description}}</td>
 
-				<td><i ng-class="['fa', 'fa-' + e.type + '-circle']"></i></td>
-
-				<td>{{e.description}}</td>
-
-				<td>{{e.createdBy.name}}</td>
-				<td><img ng-src="{{e.createdBy.image}}" alt="{{e.createdBy.name}}"></td>
-			</tr>
-		</table>
-		<p ng-if="!events.length">Ingen hendelser</p>
-	</div>
-	<a href="" ng-click="loadMore()" ng-if="showLoadMoreLink">Se flere...</a>
+        <td>{{e.createdBy.name}}</td>
+        <td><img ng-src="{{e.createdBy.image}}" alt="{{e.createdBy.name}}"></td>
+      </tr>
+    </table>
+    <p ng-if="!events.length">Ingen hendelser</p>
+  </div>
+  <a href="" ng-click="loadMore()" ng-if="showLoadMoreLink">Se flere...</a>
 </section>
+<!-- End events-view -->
+
